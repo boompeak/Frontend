@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+<observer intersection을 통한 무한스크롤 구현> -trouble shooting 맨 위에 target dom이 있을 때, useEffect와 observer로 인해 통신이 2번 일어났음 해결책 1. target을 posistion을 화면 밖으로 보내서 observer가 마운트 시 작동안하도록 함 2. page를 -1부터 시작하여, -1을 통신할 때, 에러로 받아 정상적으로 0부터 시작하도록 함 -무한스크롤 로딩 시 뷰포트 위에서 그대로 쌓여 항상 화면 맨 밑에 뷰포트가 위치함 해결책 1. 부모 태그에 height:100%를 주어 뷰포트 밑으로 연장하도록 함.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<복잡한 계층으로 통신 및 데이터 렌더링에 대한 애로사항>
 
-## Available Scripts
+앞으로 재사용이 많지 않은 경우는 컴퍼넌트를 나누지 않는 것이 좋다.
+그러다 보니 한 곳에서 포스팅을 한 뒤 부모 컴퍼넌트에 반영하는 것이 어렵다.
+더군다나 api에 여러 기능이 통합되어, 불필요한 데이터까지 포함하여 리페치되는 경우가 있었다.
+<폴더 구조 사용>
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+api를 따로두지 않아서 config의 토큰의 전달의 경우, 보일러 플레이트들을 줄일 수 있는데 그러지 못하였다.
+constant에 색상 코드들을 넣어 두어 하드코딩이 아닌 변수로써 받아서 휴먼 에러를 줄였다.
+<useForm의 오류> -useForm 사용 시 submitHandler 관련해서 제대로 통신이 되지 않았다. 1. 이후 docs를 읽어 볼 필요가 있다.
+<style component의 복잡함> 1. styled 안에 또 style component에 접근할 수 있고 2. 따로 style 속성을 이용해 선별적인 스타일을 부여할 수 있다.
