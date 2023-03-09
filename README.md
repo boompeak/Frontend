@@ -11,3 +11,5 @@ api를 따로두지 않아서 config의 토큰의 전달의 경우, 보일러 �
 constant에 색상 코드들을 넣어 두어 하드코딩이 아닌 변수로써 받아서 휴먼 에러를 줄였다.
 <useForm의 오류> -useForm 사용 시 submitHandler 관련해서 제대로 통신이 되지 않았다. 1. 이후 docs를 읽어 볼 필요가 있다.
 <style component의 복잡함> 1. styled 안에 또 style component에 접근할 수 있고 2. 따로 style 속성을 이용해 선별적인 스타일을 부여할 수 있다.
+
+<새로운 라이브러리에 대한 공부에 흥미가 생겼다>
